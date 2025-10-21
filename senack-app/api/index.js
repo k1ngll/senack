@@ -61,6 +61,7 @@ app.delete('/ranking', (req, res) => {
 });
 // --- FIM DA NOVA ROTA ---
 
-app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta http://localhost:${PORT}`);
-});
+module.exports = app;
+//app.listen(PORT, () => {
+//    console.log(`Servidor rodando na porta http://localhost:${PORT}`);
+//});
