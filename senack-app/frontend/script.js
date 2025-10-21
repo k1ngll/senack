@@ -137,6 +137,11 @@ function handleDirectionChange(newVelocity) {
 }
 
 document.addEventListener('keydown', e => {
+    // Verifica se a tecla pressionada é uma das setas do jogo
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+        // Impede o comportamento padrão do navegador (rolar a página)
+        e.preventDefault();
+    }
     switch (e.key) {
         case 'ArrowUp': handleDirectionChange({ x: 0, y: -1 }); break;
         case 'ArrowDown': handleDirectionChange({ x: 0, y: 1 }); break;
@@ -175,7 +180,7 @@ resetRankingBtn.addEventListener('click', async () => {
     // Pede confirmação ao usuário antes de uma ação destrutiva
     if (confirm('Você tem certeza que deseja resetar todo o ranking? Esta ação não pode ser desfeita.')) {
         try {
-            await fetch('http://localhost:3000/ranking', {
+            await fetch('https://senack.vercel.app/api/ranking', {
                 method: 'DELETE',
             });
             // Após resetar, atualiza a exibição do ranking
@@ -192,7 +197,7 @@ resetRankingBtn.addEventListener('click', async () => {
 // --- Comunicação com Backend ---
 async function fetchAndDisplayRanking() {
     try {
-        const response = await fetch('http://localhost:3000/ranking');
+        const response = await fetch('https://senack.vercel.app/api/ranking');
         const ranking = await response.json();
         if (ranking.length > 0) {
             highScores = ranking;
@@ -220,7 +225,7 @@ async function submitScore(name, score) {
         return;
     }
     try {
-        await fetch('http://localhost:3000/scores', {
+        await fetch('https://senack.vercel.app/api/scores', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, score }),
