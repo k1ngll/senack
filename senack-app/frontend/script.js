@@ -1,4 +1,4 @@
-// frontend/script.js - VERSÃO COM RESET DE RANKING
+// frontend/script.js
 
 // --- Elementos do HTML ---
 const mainTitle = document.getElementById('mainTitle');
@@ -231,7 +231,7 @@ async function submitScore(name, score) {
     }
 }
 
-// --- Início do Programa ---
+// --- Início do Programa --- 
 resetGame(); 
 showStartOverlay(); 
 fetchAndDisplayRanking();

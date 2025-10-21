@@ -52,7 +52,6 @@ app.post('/scores', (req, res) => {
     res.status(201).json({ message: 'Score adicionado com sucesso!' });
 });
 
-// --- NOVA ROTA ADICIONADA AQUI ---
 // Rota DELETE /ranking
 // Responsável por limpar (resetar) o array de scores.
 app.delete('/ranking', (req, res) => {
