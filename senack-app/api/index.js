@@ -60,7 +60,7 @@ app.delete('/ranking', (req, res) => {
     res.status(200).json({ message: 'Ranking resetado com sucesso!' });
 });
 // --- FIM DA NOVA ROTA ---
-
+// x
 module.exports = app;
 //app.listen(PORT, () => {
 //    console.log(`Servidor rodando na porta http://localhost:${PORT}`);
