@@ -14,11 +14,11 @@ app.listen(PORT, () => {
 app.use(cors());
 app.use(express.json());
 
-// Nosso "banco de dados" em memória
+// bd
 let scores = [
-    { name: 'Bot', score: 10 },
-    { name: 'IA', score: 50 },
-    { name: 'CPU', score: 25 }
+    { name: 'Alan', score: 10 },
+    { name: 'Ana', score: 30 },
+    { name: 'Luis', score: 25 }
 ];
 
 // --- Algoritmo de Ordenação: QuickSort ---
@@ -46,6 +46,7 @@ app.get('/api/ranking', (req, res) => {
 // Rota POST /api/scores
 app.post('/api/scores', (req, res) => {
     const { name, score } = req.body;
+    console.log(req.body);
     if (!name || typeof score !== 'number') {
         return res.status(400).json({ message: 'Dados inválidos.' });
     }
