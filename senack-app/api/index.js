@@ -4,6 +4,12 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
+// Adicione isso ao final de api/index.js
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor da API rodando em http://localhost:${PORT}`);
+});
+
 
 app.use(cors());
 app.use(express.json());
@@ -57,5 +63,5 @@ app.delete('/api/ranking', (req, res) => {
 });
 
 // --- Exportação para a Vercel ---
-// Esta é a linha mais importante para o deploy!
+
 module.exports = app;

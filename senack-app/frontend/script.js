@@ -180,7 +180,7 @@ resetRankingBtn.addEventListener('click', async () => {
     // Pede confirmação ao usuário antes de uma ação destrutiva
     if (confirm('Você tem certeza que deseja resetar todo o ranking? Esta ação não pode ser desfeita.')) {
         try {
-            await fetch('https://senack.vercel.app/api/ranking', {
+            await fetch('https://localhost:8000/api/ranking', { 
                 method: 'DELETE',
             });
             // Após resetar, atualiza a exibição do ranking
@@ -197,7 +197,7 @@ resetRankingBtn.addEventListener('click', async () => {
 // --- Comunicação com Backend ---
 async function fetchAndDisplayRanking() {
     try {
-        const response = await fetch('https://senack.vercel.app/api/ranking');
+        const response = await fetch('https://localhost:8000/api/ranking');
         const ranking = await response.json();
         if (ranking.length > 0) {
             highScores = ranking;
@@ -225,7 +225,7 @@ async function submitScore(name, score) {
         return;
     }
     try {
-        await fetch('https://senack.vercel.app/api/scores', {
+        await fetch('https://localhost:8000/api/scores', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, score }),
